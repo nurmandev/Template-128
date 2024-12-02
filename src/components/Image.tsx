@@ -34,7 +34,7 @@ const Image: React.FC<ImageProps> = ({
   });
 
   // Inner circle scaling
-  const scaleCircle = interpolate(frame - delay, [20, 40], reverse ? [1, 2] : [2, 1], {
+  const scaleCircle = interpolate(frame - delay, [20, 40], reverse ? [1, 2] : [1.5, 1], {
     extrapolateLeft: 'clamp',
     extrapolateRight: 'clamp',
   });

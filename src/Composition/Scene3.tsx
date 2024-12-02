@@ -79,7 +79,7 @@ const Scene3: React.FC<Scene3Props> = (props) => {
         y={HEIGHT * 0}
         size={HEIGHT * 0.71}
         delay={22}
-        background="#cdb100"
+        background="#f7d400"
       />
     </AbsoluteFill>
   );

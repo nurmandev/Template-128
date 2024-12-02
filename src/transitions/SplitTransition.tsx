@@ -40,26 +40,26 @@ const SplitPresentation: React.FC<TransitionPresentationComponentProps<SplitTran
       case 'vertical':
         // Vertical slices move up or down
         return index === 0
-          ? { translateX: finalX, translateY: -height * 0.75 } // First slice moves up
-          : { translateX: finalX, translateY: height * 0.75 }; // Second slice moves down
+          ? { translateX: finalX, translateY: -height * 0.5 } // First slice moves up
+          : { translateX: finalX, translateY: height * 0.5 }; // Second slice moves down
 
       case 'horizontal':
         // Horizontal slices move left or right
         return index === 0
-          ? { translateX: -width * 0.75, translateY: finalY } // First slice moves left
-          : { translateX: width * 0.75, translateY: finalY }; // Second slice moves right
+          ? { translateX: -width * 0.5, translateY: finalY } // First slice moves left
+          : { translateX: width * 0.5, translateY: finalY }; // Second slice moves right
 
       case 'vertical-reverse':
         // Vertical slices reverse: down or up
         return index === 0
-          ? { translateX: finalX, translateY: height * 0.75 } // First slice moves down
-          : { translateX: finalX, translateY: -height * 0.75 }; // Second slice moves up
+          ? { translateX: finalX, translateY: height * 0.5 } // First slice moves down
+          : { translateX: finalX, translateY: -height * 0.5 }; // Second slice moves up
 
       case 'horizontal-reverse':
         // Horizontal slices reverse: right or left
         return index === 0
-          ? { translateX: width * 0.75, translateY: finalY } // First slice moves right
-          : { translateX: -width * 0.75, translateY: finalY }; // Second slice moves left
+          ? { translateX: width * 0.5, translateY: finalY } // First slice moves right
+          : { translateX: -width * 0.5, translateY: finalY }; // Second slice moves left
 
       default:
         return { translateX: finalX, translateY: finalY }; // No movement fallback
@@ -129,6 +129,9 @@ const SplitPresentation: React.FC<TransitionPresentationComponentProps<SplitTran
 
   return (
     <AbsoluteFill>
+      {presentationProgress >= 1 && (
+        <AbsoluteFill style={{ overflow: 'hidden' }}>{children}</AbsoluteFill>
+      )}
       {gridSlices.map((slice, index) => {
         const { finalX, finalY } = slice;
 
@@ -169,6 +172,7 @@ const SplitPresentation: React.FC<TransitionPresentationComponentProps<SplitTran
               position: 'absolute',
               left: finalX,
               top: finalY,
+              zIndex: 2,
             }}
           >
             {(exitingChildren || enteringChildren) && (

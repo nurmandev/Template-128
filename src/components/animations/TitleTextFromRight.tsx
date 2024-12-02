@@ -26,7 +26,7 @@ export const TitleTextFromRight = ({
       }}
     >
       {lines.map((line, lineIndex) => {
-        const lineStartFrame = startAt + lineIndex * 5;
+        const lineStartFrame = startAt + lineIndex * 3;
 
         return (
           <p

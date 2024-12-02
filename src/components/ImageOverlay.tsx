@@ -1,9 +1,9 @@
 import { Img, AbsoluteFill, useCurrentFrame, interpolate } from 'remotion';
 
-const random = (seed: number) => {
-  const x = Math.sin(seed) * 10000;
-  return x - Math.floor(x);
-};
+// const random = (seed: number) => {
+//   const x = Math.sin(seed) * 10000;
+//   return x - Math.floor(x);
+// };
 
 interface LogoProps {
   img?: string;
@@ -11,18 +11,22 @@ interface LogoProps {
   opacity?: number;
 }
 
-const ImageOverlay = ({ img, color = '#ff6f01', opacity = 1 }: LogoProps) => {
+const ImageOverlay = ({ img, color = '#ff6f00', opacity = 1 }: LogoProps) => {
   const frame = useCurrentFrame();
 
   const adjustedFrame = frame * 0.1;
 
-  const randomFactorX = random(adjustedFrame * 0.5 + 10) * 300 - 150;
-  const randomFactorY = random(adjustedFrame * 0.7 + 20) * 300 - 150;
+  // const randomFactorX = random(adjustedFrame * 0.5 + 10) * 300 - 150;
+  // const randomFactorY = random(adjustedFrame * 0.7 + 20) * 300 - 150;
 
   // Animate the noise/smoke movement
-  const translateX = interpolate(adjustedFrame, [0, 30], [randomFactorX, randomFactorX * 1.5]);
-  const translateY = interpolate(adjustedFrame, [0, 30], [randomFactorY, randomFactorY * 1.5]);
+  // const translateX = interpolate(adjustedFrame, [0, 30], [randomFactorX, randomFactorX * 1.5]);
+  // const translateY = interpolate(adjustedFrame, [0, 30], [randomFactorY, randomFactorY * 1.5]);
   const opacityA = interpolate(adjustedFrame, [0, 20], [0, 1]);
+  const opacityImage = interpolate(frame, [20, 25], [1, 1.5], {
+    extrapolateRight: 'clamp',
+    extrapolateLeft: 'clamp',
+  });
 
   return (
     <AbsoluteFill style={{ overflow: 'hidden' }}>
@@ -34,13 +38,13 @@ const ImageOverlay = ({ img, color = '#ff6f01', opacity = 1 }: LogoProps) => {
               width: '100%',
               height: '100%',
               objectFit: 'cover',
-              transform: `scale(1.5)`,
+              transform: `scale(${opacityImage})`,
               opacity: opacityA,
             }}
           />
         </AbsoluteFill>
       )}
-      <AbsoluteFill
+      {/* <AbsoluteFill
         style={{
           background: `url('https://blog.demofox.org/wp-content/uploads/2021/04/perlin_8.png')`,
           backgroundSize: '150%',
@@ -48,11 +52,12 @@ const ImageOverlay = ({ img, color = '#ff6f01', opacity = 1 }: LogoProps) => {
           mixBlendMode: 'multiply',
           opacity: opacity ? 0 : 0.3,
         }}
-      />
+      /> */}
       <AbsoluteFill
         style={{
           background: color,
-          opacity: 0.8,
+          opacity: 0.9,
+          mixBlendMode: 'screen',
         }}
       />
       <AbsoluteFill

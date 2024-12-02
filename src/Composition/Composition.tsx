@@ -80,6 +80,10 @@ const Main: React.FC<MainProps> = ({
         {/* change the name of your music file in the public folder to match music.mp3  */}
         <Audio src={staticFile('music.mp3')} volume={audioVolume} />
         <TransitionSeries>
+          <TransitionSeries.Transition
+            presentation={fade({ shouldFadeOutExitingScene: true })}
+            timing={linearTiming({ durationInFrames: 20 })}
+          />
           <TransitionSeries.Sequence durationInFrames={scene1Duration}>
             <Scene1 {...scene1Props} background={background} />
           </TransitionSeries.Sequence>

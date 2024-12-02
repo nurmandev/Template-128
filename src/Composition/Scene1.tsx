@@ -67,11 +67,11 @@ const Scene1: React.FC<Scene1Props> = (props) => {
       <RectangularLines
         direction="topRightToBottomLeft"
         color="#ffb000"
-        width={200}
-        height={200}
-        x={WIDTH - 100}
+        width={160}
+        height={160}
+        x={WIDTH - 80}
         delay={18}
-        y={100}
+        y={80}
       />
     </AbsoluteFill>
     // </ScaleWrapper>

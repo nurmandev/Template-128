@@ -8,6 +8,7 @@ import { BackgroundProps } from '../backgrounds';
 import Logo from '../components/Logo';
 import ImageOverlay from '../components/ImageOverlay';
 import RectangularLines from '../components/RectangularLines';
+// import ScaleWrapper from '../components/ScaleWarapper';
 
 export const scene6Schema = z.object({
   logo: z.string(),
@@ -22,9 +23,9 @@ const Scene6: React.FC<Scene6Props> = (props) => {
     text: props.title.toUpperCase(),
     fontSize: 70,
     fontWeight: '900',
-    letterSpacing: '6px',
-    maxLines: 2,
-    maxWidth: 1400,
+    letterSpacing: '1px',
+    maxLines: 1,
+    maxWidth: 1500,
   });
 
   // const subtitleSplit = useTextSplitter({
@@ -37,9 +38,10 @@ const Scene6: React.FC<Scene6Props> = (props) => {
   // });
 
   return (
+    // <ScaleWrapper>
     <AbsoluteFill>
       <ImageOverlay img={props.img} />
-      <Logo logo={props.logo} size={150} x={WIDTH * 0.38} y={HEIGHT * 0.38} delay={17} />
+      <Logo logo={props.logo} size={150} x={WIDTH * 0.38} y={HEIGHT * 0.38} delay={7} />
 
       <div
         style={{
@@ -47,11 +49,10 @@ const Scene6: React.FC<Scene6Props> = (props) => {
           color: colorVar('black'),
           position: 'absolute',
           top: HEIGHT * 0.55,
-          left: WIDTH * 0.18,
-          textAlign: 'center',
+          left: WIDTH * 0.21,
         }}
       >
-        <TitleTextFromRight text={titleSplit.text} startAt={21} />
+        <TitleTextFromRight text={titleSplit.text} startAt={30} />
       </div>
       <RectangularLines
         direction="topRightToBottomLeft"
@@ -60,17 +61,20 @@ const Scene6: React.FC<Scene6Props> = (props) => {
         height={200}
         x={100}
         y={HEIGHT - 100}
+        delay={18}
       />
 
       <RectangularLines
         direction="topRightToBottomLeft"
         color="#ffb000"
-        width={200}
-        height={200}
-        x={WIDTH - 100}
-        y={100}
+        width={160}
+        height={160}
+        x={WIDTH - 80}
+        delay={18}
+        y={80}
       />
     </AbsoluteFill>
+    // </ScaleWrapper>
   );
 };
 

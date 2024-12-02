@@ -77,7 +77,7 @@ const Scene5: React.FC<Scene5Props> = (props) => {
         x={WIDTH * 0.34}
         y={-HEIGHT * 0.03}
         size={HEIGHT * 0.74}
-        background="#cdb100"
+        background="#f7d400"
         delay={22}
       />
     </AbsoluteFill>
