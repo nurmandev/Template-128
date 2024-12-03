@@ -62,6 +62,7 @@ const Scene3: React.FC<Scene3Props> = (props) => {
         x={WIDTH * 0.38}
         y={HEIGHT * 0.73}
         delay={30}
+        angle="45deg"
       />
 
       <RectangularLines
@@ -72,6 +73,7 @@ const Scene3: React.FC<Scene3Props> = (props) => {
         x={WIDTH * 0.15}
         y={HEIGHT * 0.27}
         delay={30}
+        angle="45deg"
       />
       <Image
         img={props.img}

@@ -60,7 +60,7 @@ const Scene2: React.FC<Scene2Props> = (props) => {
         color="black"
         width={250}
         height={250}
-        x={WIDTH * 0.6}
+        x={WIDTH * 0.62}
         y={HEIGHT * 0.75}
         delay={30}
       />

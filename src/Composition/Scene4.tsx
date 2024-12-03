@@ -58,9 +58,10 @@ const Scene4: React.FC<Scene4Props> = (props) => {
         color="black"
         width={250}
         height={250}
-        x={WIDTH * 0.6}
-        y={HEIGHT * 0.75}
+        x={WIDTH * 0.65}
+        y={HEIGHT * 0.77}
         delay={30}
+        angle="45deg"
       />
 
       <RectangularLines
@@ -68,8 +69,8 @@ const Scene4: React.FC<Scene4Props> = (props) => {
         color="black"
         width={250}
         height={250}
-        x={WIDTH * 0.87}
-        y={HEIGHT * 0.27}
+        x={WIDTH * 0.92}
+        y={HEIGHT * 0.24}
         delay={30}
       />
       <Image

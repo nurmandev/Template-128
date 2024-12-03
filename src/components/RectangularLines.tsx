@@ -18,6 +18,7 @@ const RectangularLines = ({
   opacity = 1,
   delay = 0,
   color = 'white',
+  angle = '135deg',
 }: {
   x?: number;
   y?: number;
@@ -27,6 +28,7 @@ const RectangularLines = ({
   opacity?: number;
   delay?: number;
   color?: string;
+  angle?: string;
 }) => {
   const frame = useCurrentFrame();
 
@@ -87,7 +89,7 @@ const RectangularLines = ({
           width: '100%', // Slightly oversized to cover edges
           height: '100%',
           backgroundImage: `repeating-linear-gradient(
-            135deg,
+            ${angle},
             ${color},
             ${color} 1px,
             transparent 5px,
