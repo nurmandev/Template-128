@@ -22,28 +22,17 @@ const ImageOverlay = ({ img, color = '#ff6f00', opacity = 1 }: LogoProps) => {
   // Animate the noise/smoke movement
   // const translateX = interpolate(adjustedFrame, [0, 30], [randomFactorX, randomFactorX * 1.5]);
   // const translateY = interpolate(adjustedFrame, [0, 30], [randomFactorY, randomFactorY * 1.5]);
-  const opacityA = interpolate(adjustedFrame, [0, 20], [0, 1]);
-  const opacityImage = interpolate(frame, [20, 25], [1, 1.5], {
+  const opacityA = interpolate(adjustedFrame, [0, 20], [0, 0.45], {
+    extrapolateRight: 'clamp',
+    extrapolateLeft: 'clamp',
+  });
+  const scale = interpolate(frame, [20, 25], [1, 1.5], {
     extrapolateRight: 'clamp',
     extrapolateLeft: 'clamp',
   });
 
   return (
     <AbsoluteFill style={{ overflow: 'hidden' }}>
-      {img && (
-        <AbsoluteFill>
-          <Img
-            src={img}
-            style={{
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover',
-              transform: `scale(${opacityImage})`,
-              opacity: opacityA,
-            }}
-          />
-        </AbsoluteFill>
-      )}
       {/* <AbsoluteFill
         style={{
           background: `url('https://blog.demofox.org/wp-content/uploads/2021/04/perlin_8.png')`,
@@ -56,10 +45,24 @@ const ImageOverlay = ({ img, color = '#ff6f00', opacity = 1 }: LogoProps) => {
       <AbsoluteFill
         style={{
           background: color,
-          opacity: 0.9,
-          mixBlendMode: 'screen',
+          // opacity: 0.9,
+          // mixBlendMode: 'screen',
         }}
       />
+      {img && (
+        <AbsoluteFill>
+          <Img
+            src={img}
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              transform: `scale(${scale})`,
+              opacity: opacityA,
+            }}
+          />
+        </AbsoluteFill>
+      )}
       <AbsoluteFill
         style={{
           background: `radial-gradient(circle, rgba(0, 0, 0, 0) 75%, rgba(235, 60, 0, 1) 100%)`,

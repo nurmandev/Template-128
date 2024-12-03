@@ -54,7 +54,7 @@ export const TitleTextFromRight = ({
                 easing: Easing.ease,
               });
 
-              const opacity = interpolate(frame - charStartFrame, [0, 5], [0, 1], {
+              const opacity = interpolate(frame - charStartFrame, [0, 3], [0, 1], {
                 extrapolateLeft: 'clamp',
                 extrapolateRight: 'clamp',
                 easing: Easing.out(Easing.ease),

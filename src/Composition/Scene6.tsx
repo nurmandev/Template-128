@@ -21,11 +21,11 @@ const Scene6: React.FC<Scene6Props> = (props) => {
   // we make the text conform to available width, fontFamily, fontWeight, and fontSize and add \n to the text
   const titleSplit = useTextSplitter({
     text: props.title.toUpperCase(),
-    fontSize: 70,
+    fontSize: 60,
     fontWeight: '900',
     letterSpacing: '1px',
-    maxLines: 1,
-    maxWidth: 1500,
+    maxLines: 2,
+    maxWidth: 1300,
   });
 
   // const subtitleSplit = useTextSplitter({
@@ -50,6 +50,7 @@ const Scene6: React.FC<Scene6Props> = (props) => {
           position: 'absolute',
           top: HEIGHT * 0.55,
           left: WIDTH * 0.21,
+          textAlign: 'center',
         }}
       >
         <TitleTextFromRight text={titleSplit.text} startAt={30} />

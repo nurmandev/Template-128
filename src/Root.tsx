@@ -74,7 +74,7 @@ export const RemotionRoot: React.FC = () => {
           scene6Duration: 115,
           scene6Props: {
             logo: staticFile('Logo.png'),
-            title: 'VISIT US TODAY AT WESTV CHESTER, OH. OR CALL US 513-874-4343',
+            title: 'VISIT US TODAY AT WEST CHESTER, OH. OR CALL US 513-874-4343',
             img: staticFile('Media_1.jpg'),
           },
         }}
@@ -148,7 +148,7 @@ export const RemotionRoot: React.FC = () => {
           scene6Duration: 115,
           scene6Props: {
             logo: staticFile('Logo.png'),
-            title: 'VISIT US TODAY AT WESTV CHESTER, OH. OR CALL US 513-874-4343',
+            title: 'VISIT US TODAY AT WEST CHESTER, OH. OR CALL US 513-874-4343',
             img: staticFile('Media_1.jpg'),
           },
         }}
